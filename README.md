@@ -13,27 +13,23 @@
   		•
   		<a href="https://docs.gitote.com">Docs</a>
   		•
-  		<a href="https://gitlab.com/gitote/gitote/issues">Issues</a>
+  		<a href="https://github.com/gitote/gitote/issues">Issues</a>
   	</strong>
   </p>
   <p align="center">
-    <a href="https://gitlab.com/gitote/gitote"><img
+    <a href="https://github.com/gitote/gitote"><img
   		alt="Go Version"
   		src="https://img.shields.io/badge/Go-v1.11-brightgreen.svg">
-  	</a>
-  	<a href="https://gitlab.com/gitote/gitote/pipelines"><img
-  		alt="Build Status"
-  		src="https://gitlab.com/gitote/gitote/badges/master/pipeline.svg">
   	</a>
   	<a href="https://ci.appveyor.com/project/yogicodes/gitote"><img
   		alt="Appveyor Status"
   		src="https://ci.appveyor.com/api/projects/status/lhunpdfuay0oy8fj?svg=true">
   	</a>
-  	<a href="https://goreportcard.com/report/gitlab.com/gitote/gitote"><img
+  	<a href="https://goreportcard.com/report/github.com/gitote/gitote"><img
   		alt="Go Report"
-  		src="https://goreportcard.com/badge/gitlab.com/gitote/gitote">
+  		src="https://goreportcard.com/badge/github.com/gitote/gitote">
   	</a>
-  	<a href="https://codebeat.co/projects/gitlab-com-gitote-gitote-master"><img
+  	<a href="https://codebeat.co/projects/github-com-gitote-gitote-master"><img
   		alt="Codebeat Report"
   		src="https://codebeat.co/badges/7ec50fde-7899-4673-ad9e-3ce7740de99d">
   	</a>
@@ -49,7 +45,7 @@ Welcome to the [gitote](https://gitote.com) codebase. We are so excited to have 
 
 ## Contributing
 
-We expect contributors to abide by our underlying [code of conduct](docs/CONDUCT.md). All conversations and discussions on GitLab (issues, merge requests) and across Gitote must be respectful and harassment-free.
+We expect contributors to abide by our underlying [code of conduct](docs/CONDUCT.md). All conversations and discussions on GitHub (issues, merge requests) and across Gitote must be respectful and harassment-free.
 
 ### Where to contribute
 
@@ -59,7 +55,7 @@ When in doubt, ask a [core team member](#core-team)! You can mention us in any i
 
 **Fixing bugs** may also not require a lot of communication, but the more the better. Please surround bug fixes with ample tests. Bugs are magnets for other bugs. Write tests near bugs!
 
-**Building features** is the area which will require the most communication and/or negotiation. Every feature is subjective and open for debate. The [product roadmap](https://gitlab.com/gitote/gitote/boards/716462) should be a good guide to follow. As always, when in doubt, ask!
+**Building features** is the area which will require the most communication and/or negotiation. Every feature is subjective and open for debate. The [product roadmap](https://github.com/gitote/gitote/projects/1) should be a good guide to follow. As always, when in doubt, ask!
 
 ### How to contribute
 
@@ -86,7 +82,7 @@ Some existing code may be poorly written or untested, so we must have more scrut
 * Try to keep the megre requests small; a megre request should try its very best to address only a single concern.
 * Make sure all tests pass and add additional tests for the code you submit.
 * Document your reasoning behind the changes. Explain why you wrote the code in the way you did; the code should explain what it does.
-* If there's an existing issue related to the megre request, reference to it by adding something like `References/Closes/Fixes/Resolves #305`, where 305 is the issue number. [More info here](https://docs.gitlab.com/ee/user/project/issues/closing_issues.html#via-merge-request)
+* If there's an existing issue related to the megre request, reference to it by adding something like `References/Closes/Fixes/Resolves #305`, where 305 is the issue number. [More info here](https://github.com/blog/1506-closing-issues-via-pull-requests)
 * If you follow the megre request template, you can't go wrong.
 
 ## Codebase
@@ -142,12 +138,12 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 ### Installation
 
 0.  Make sure all the prerequisites are installed.
-1.  Fork **Gitote** repository, ie. https://gitlab.com/gitote/gitote/forks/new
+1.  Fork **Gitote** repository, ie. https://github.com/gitote/gitote/fork
 
 ```sh
 mkdir -p $GOPATH/src/gitote.com/gitote
 cd $GOPATH/src/gitote.com/gitote
-git clone https://gitlab.com/gitote/gitote.git
+git clone https://github.com/gitote/gitote.git
 cd gitote
 go build
 ./gitote web -p 8080
@@ -161,7 +157,7 @@ We're mostly a go app, with a bit of **LESS** sprinkled in. **For most cases, si
 
 ## Product Roadmap
 
-Our new product roadmap can be found [here](https://gitlab.com/gitote/gitote/boards/716462). Many notes need to be converted to issues but this should provide an overview of features we plan to work on, as well as features we are considering.
+Our new product roadmap can be found [here](https://github.com/gitote/gitote/projects/1). Many notes need to be converted to issues but this should provide an overview of features we plan to work on, as well as features we are considering.
 
 Core team members will move issues along the project board as they progress.
 
@@ -191,7 +187,7 @@ Core team members will move issues along the project board as they progress.
 
 ## License
 
-This program is free software: you can redistribute it and/or modify it under the terms of the **MIT License**. Please see the [LICENSE](https://gitlab.com/gitote/gitote/blob/master/LICENSE) file in our repository for the full text.
+This program is free software: you can redistribute it and/or modify it under the terms of the **MIT License**. Please see the [LICENSE](https://github.com/gitote/gitote/blob/master/LICENSE) file in our repository for the full text.
 
 <br/>
 
