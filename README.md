@@ -6,7 +6,7 @@
     width=180px
   />
   <br/>
-  <h1><code>👩‍💻👨‍💻 Gitote 👩‍💻👨‍💻</code></h1>
+  <h1>👩‍💻👨‍💻 Gitote 👩‍💻👨‍💻</h1>
   <p align="center">
   	<strong>
   		<a href="https://gitote.com">Website</a>
