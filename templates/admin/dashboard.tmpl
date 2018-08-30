@@ -1,0 +1,221 @@
+{{template "base/head" .}}
+<div class="admin dashboard">
+	<div class="ui container">
+		<div class="ui grid">
+			{{template "admin/navbar" .}}
+			<div class="twelve wide column content">
+				{{template "base/alert" .}}
+				<h4 class="ui top attached header">
+					Version 📦
+				</h4>
+				<div class="ui attached segment">
+					<h3>
+						Gitote.com - <a href="https://gitlab.com/gitote/gitote/commits/master">v{{AppVer}}</a>
+						<div class="latest-version">Latest Version</div>
+					</h3>
+				</div>
+				<h4 class="ui top attached header">
+					{{.i18n.Tr "admin.dashboard.statistic"}} 📈
+				</h4>
+				<div class="ui attached segment">
+					<table style="width:100%" class="table-c">
+						<tr>
+							<td class="td-c">Users</td>
+							<td class="td-c center-c">{{.Stats.Counter.User}} - 👦</td>
+						</tr>
+						<tr>
+							<td class="td-c">Organisations</td>
+							<td class="td-c center-c">{{.Stats.Counter.Org}} - 🏢</td>
+						</tr>
+						<tr>
+							<td class="td-c">Public keys</td>
+							<td class="td-c center-c">{{.Stats.Counter.PublicKey}} - 🔑</td>
+						</tr>
+						<tr>
+							<td class="td-c">Repositories</td>
+							<td class="td-c center-c">{{.Stats.Counter.Repo}} - 📁</td>
+						</tr>
+						<tr>
+							<td class="td-c">Watches</td>
+							<td class="td-c center-c">{{.Stats.Counter.Watch}} - 👀</td>
+						</tr>
+						<tr>
+							<td class="td-c">Stars</td>
+							<td class="td-c center-c">{{.Stats.Counter.Star}} - ⭐</td>
+						</tr>
+						<tr>
+							<td class="td-c">Actions</td>
+							<td class="td-c center-c">{{.Stats.Counter.Action}} - 🎬</td>
+						</tr>
+						<tr>
+							<td class="td-c">Accesses</td>
+							<td class="td-c center-c">{{.Stats.Counter.Access}} - 🙃</td>
+						</tr>
+						<tr>
+							<td class="td-c">Issues</td>
+							<td class="td-c center-c">{{.Stats.Counter.Issue}} - 📑</td>
+						</tr>
+						<tr>
+							<td class="td-c">Comments</td>
+							<td class="td-c center-c">{{.Stats.Counter.Comment}} - 💬</td>
+						</tr>
+						<tr>
+							<td class="td-c">Social accounts</td>
+							<td class="td-c center-c">{{.Stats.Counter.Oauth}} - 😎</td>
+						</tr>
+						<tr>
+							<td class="td-c">Follows</td>
+							<td class="td-c center-c">{{.Stats.Counter.Follow}} - ➕</td>
+						</tr>
+						<tr>
+							<td class="td-c">Mirrors</td>
+							<td class="td-c center-c">{{.Stats.Counter.Mirror}} - 🤳</td>
+						</tr>
+						<tr>
+							<td class="td-c">Releases</td>
+							<td class="td-c center-c">{{.Stats.Counter.Release}} - 📦</td>
+						</tr>
+						<tr>
+							<td class="td-c">Login sources</td>
+							<td class="td-c center-c">{{.Stats.Counter.LoginSource}} - 🔑</td>
+						</tr>
+						<tr>
+							<td class="td-c">Webhooks</td>
+							<td class="td-c center-c">{{.Stats.Counter.Webhook}} - 🎣</td>
+						</tr>
+						<tr>
+							<td class="td-c">Milestones</td>
+							<td class="td-c center-c">{{.Stats.Counter.Milestone}} - 🙌</td>
+						</tr>
+						<tr>
+							<td class="td-c">Labels</td>
+							<td class="td-c center-c">{{.Stats.Counter.Label}} - 🏷️</td>
+						</tr>
+						<tr>
+							<td class="td-c">Hook tasks</td>
+							<td class="td-c center-c">{{.Stats.Counter.HookTask}} - 🤹</td>
+						</tr>
+						<tr>
+							<td class="td-c">Teams</td>
+							<td class="td-c center-c">{{.Stats.Counter.Team}} - 👯</td>
+						</tr>
+						<tr>
+							<td class="td-c">Update tasks</td>
+							<td class="td-c center-c">{{.Stats.Counter.UpdateTask}} - 🤹</td>
+						</tr>
+						<tr>
+							<td class="td-c">Attachments</td>
+							<td class="td-c center-c">{{.Stats.Counter.Attachment}} - 📎</td>
+						</tr>
+					</table>
+				</div>
+				<h4 class="ui top attached header">
+					{{.i18n.Tr "admin.dashboard.operations"}} 🔨
+				</h4>
+				<div class="ui unstackable attached table segment">
+					<table class="ui unstackable very basic table">
+						<tbody>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.delete_inactivate_accounts"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=1">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.delete_repo_archives"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=2">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.delete_missing_repos"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=3">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.git_gc_repos"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=4">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.resync_all_sshkeys"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=5">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.resync_all_hooks"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=6">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+							<tr>
+								<td>{{.i18n.Tr "admin.dashboard.reinit_missing_repos"}}</td>
+								<td><i class="fa fa-caret-square-o-right"></i> <a href="{{AppSubURL}}/admin?op=7">{{.i18n.Tr "admin.dashboard.operation_run"}}</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h4 class="ui top attached header">
+					{{.i18n.Tr "admin.dashboard.system_status"}} 📺
+				</h4>
+				<div class="ui attached table segment">
+					<dl class="dl-horizontal admin-dl-horizontal">
+						<dt>{{.i18n.Tr "admin.dashboard.server_uptime"}}</dt>
+						<dd>{{.SysStatus.Uptime}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.current_goroutine"}}</dt>
+						<dd>{{.SysStatus.NumGoroutine}}</dd>
+						<div class="ui divider"></div>
+						<dt>{{.i18n.Tr "admin.dashboard.current_memory_usage"}}</dt>
+						<dd>{{.SysStatus.MemAllocated}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.total_memory_allocated"}}</dt>
+						<dd>{{.SysStatus.MemTotal}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.memory_obtained"}}</dt>
+						<dd>{{.SysStatus.MemSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.pointer_lookup_times"}}</dt>
+						<dd>{{.SysStatus.Lookups}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.memory_allocate_times"}}</dt>
+						<dd>{{.SysStatus.MemMallocs}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.memory_free_times"}}</dt>
+						<dd>{{.SysStatus.MemFrees}}</dd>
+						<div class="ui divider"></div>
+						<dt>{{.i18n.Tr "admin.dashboard.current_heap_usage"}}</dt>
+						<dd>{{.SysStatus.HeapAlloc}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.heap_memory_obtained"}}</dt>
+						<dd>{{.SysStatus.HeapSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.heap_memory_idle"}}</dt>
+						<dd>{{.SysStatus.HeapIdle}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.heap_memory_in_use"}}</dt>
+						<dd>{{.SysStatus.HeapInuse}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.heap_memory_released"}}</dt>
+						<dd>{{.SysStatus.HeapReleased}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.heap_objects"}}</dt>
+						<dd>{{.SysStatus.HeapObjects}}</dd>
+						<div class="ui divider"></div>
+						<dt>{{.i18n.Tr "admin.dashboard.bootstrap_stack_usage"}}</dt>
+						<dd>{{.SysStatus.StackInuse}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.stack_memory_obtained"}}</dt>
+						<dd>{{.SysStatus.StackSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.mspan_structures_usage"}}</dt>
+						<dd>{{.SysStatus.MSpanInuse}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.mspan_structures_obtained"}}</dt>
+						<dd>{{.SysStatus.HeapSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.mcache_structures_usage"}}</dt>
+						<dd>{{.SysStatus.MCacheInuse}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.mcache_structures_obtained"}}</dt>
+						<dd>{{.SysStatus.MCacheSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.profiling_bucket_hash_table_obtained"}}</dt>
+						<dd>{{.SysStatus.BuckHashSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.gc_metadata_obtained"}}</dt>
+						<dd>{{.SysStatus.GCSys}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.other_system_allocation_obtained"}}</dt>
+						<dd>{{.SysStatus.OtherSys}}</dd>
+						<div class="ui divider"></div>
+						<dt>{{.i18n.Tr "admin.dashboard.next_gc_recycle"}}</dt>
+						<dd>{{.SysStatus.NextGC}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.last_gc_time"}}</dt>
+						<dd>{{.SysStatus.LastGC}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.total_gc_pause"}}</dt>
+						<dd>{{.SysStatus.PauseTotalNs}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.last_gc_pause"}}</dt>
+						<dd>{{.SysStatus.PauseNs}}</dd>
+						<dt>{{.i18n.Tr "admin.dashboard.gc_times"}}</dt>
+						<dd>{{.SysStatus.NumGC}}</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

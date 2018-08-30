@@ -1,0 +1,5 @@
+conf/**
+public/**
+templates/**
+vendor/**
+pkg/bindata**

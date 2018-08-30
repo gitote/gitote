@@ -1,0 +1,674 @@
+@footer-margin: 40px;
+
+body:not(.full-width) {
+	font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, Helvetica, sans-serif !important;
+	background-color: #fff;
+	overflow-y: scroll;
+	overflow-x: auto;
+	min-width: 1020px;
+}
+.ui.container:not(.fluid) {
+	width: 980px !important;
+}
+h1, h2, h3, h4, h5,
+.ui.header,
+.ui.menu,
+.ui.input input,
+.ui.button:not(.label) {
+	font-family: "PingFang SC", 'Hiragino Sans GB', "Helvetica Neue", "Microsoft YaHei", Arial, Helvetica, sans-serif !important;
+}
+img {
+	border-radius: 3px;
+}
+pre, code {
+	font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	&.raw {
+		padding: 7px 12px;
+		margin: 10px 0;
+		background-color: #f8f8f8;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		font-size: 13px;
+		line-height: 1.5;
+		overflow: auto;
+	}
+	&.wrap {
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+}
+.dont-break-out {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.full.height {
+	padding: 0;
+	margin: 0 0 -@footer-margin*2 0;
+	min-height: 100%;
+}
+.following.bar {
+	z-index: 900;
+	left: 0;
+	width: 100%;
+	&.light {
+		background-color: #eeeeee;
+		border-bottom: 1px solid #DDDDDD;
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.04);
+	}
+	.column .menu {
+		margin-top: 0;
+	}
+	.top.menu a.item.brand {
+		padding-left: 0;
+    padding-right: 0;
+	}
+	.brand .ui.mini.image {
+		width: 30px;
+	}
+	.top.menu a.item:hover,
+	.top.menu .dropdown.item:hover,
+	.top.menu .dropdown.item.active	{
+		background-color: transparent;
+	}
+	.top.menu a.item:hover {
+		color: rgba(0,0,0,.45);
+	}
+	.top.menu .menu {
+		z-index: 900;
+	}
+	.icon,
+	.octicon {
+		margin-right: 5px !important;
+	}
+	.head.link.item {
+		padding-right: 0 !important;
+	}
+	.avatar > .ui.image {
+		margin-right: 0;
+	}
+	.avatar .octicon-triangle-down {
+		margin-top: 6.5px;
+	}
+	.searchbox {
+		background-color: rgb(244, 244, 244) !important;
+		&:focus {
+			background-color: rgb(233, 233, 233) !important;
+			width: 17em;
+		}
+	}
+	.text .octicon {
+		width: 16px;
+		text-align: center;
+	}
+	.right.menu {
+		.menu {
+			left: auto;
+			right: 0;
+		}
+		.dropdown .menu {
+			margin-top: 0;
+		}
+	}
+}
+
+.ui {
+	&.left {
+		float: left;
+	}
+	&.right {
+		float: right;
+	}
+
+	&.container {
+		&.fluid {
+			&.padded {
+				padding: 0 10px 0 10px;
+			}
+		}
+	}
+
+	&.form {
+		.ui.button {
+			font-weight: normal;
+		}
+		.box.field {
+			padding-left: 27px;
+		}
+	}
+
+	&.menu,
+	&.vertical.menu,
+	&.segment {
+		box-shadow: none;
+	}
+
+	.text {
+		&.red {
+			color: #d95c5c !important;
+			a {
+				color: #d95c5c !important;
+				&:hover {
+					color: #E67777 !important;
+				}
+			}
+		}
+		&.blue {
+			color: #428bca !important;
+			a {
+				color: #15c !important;
+				&:hover {
+					color: #428bca !important;
+				}
+			}
+		}
+		&.black {
+			color: #444;
+			&:hover {
+				color: #000;
+			}
+		}
+		&.grey {
+			color: #767676 !important;
+			a {
+				color: #444 !important;
+				&:hover {
+					color: #000 !important;
+				}
+			}
+		}
+		&.light.grey {
+			color: #888 !important;
+		}
+		&.green {
+			color: #6cc644 !important;
+		}
+		&.purple {
+			color: #6e5494 !important;
+		}
+		&.yellow {
+			color: #FBBD08 !important;
+		}
+		&.gold {
+			color: #a1882b !important;
+		}
+
+		&.left {
+			text-align: left !important;
+		}
+		&.right {
+			text-align: right !important;
+		}
+		&.small {
+			font-size: 0.75em;
+		}
+		&.normal {
+			font-weight: normal;
+		}
+		&.bold {
+			font-weight: bold;
+		}
+		&.italic {
+			font-style: italic;
+		}
+
+		&.truncate {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+		}
+
+		&.thin {
+			font-weight: normal;
+		}
+
+		&.middle {
+			vertical-align: middle;
+		}
+	}
+
+	.message {
+		text-align: center;
+	}
+
+	.header > i + .content {
+		padding-left: 0.75rem;
+		vertical-align: middle;
+	}
+	.warning {
+		&.header {
+			background-color: #F9EDBE !important;
+			border-color: #F0C36D;
+		}
+		&.segment {
+			border-color: #F0C36D;
+		}
+	}
+	.info {
+		&.segment {
+			border: 1px solid #c5d5dd;
+			&.top {
+				background-color: #e6f1f6 !important;
+				h3, h4 {
+					margin-top: 0;
+				}
+				h3:last-child {
+					margin-top: 4px;
+				}
+				> :last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.normal.header {
+		font-weight: normal;
+	}
+
+	.avatar.image {
+		border-radius: 3px;
+	}
+
+	.form {
+		.fake {
+			display: none !important;
+		}
+
+		.sub.field {
+			margin-left: 25px;
+		}
+	}
+
+	.sha.label {
+		font-family: Consolas, Menlo, Monaco, "Lucida Console", monospace;
+		font-size: 13px;
+		padding: 6px 10px 4px 10px;
+		font-weight: normal;
+		margin: 0 6px;
+	}
+
+	&.status.buttons {
+		.octicon {
+			margin-right: 4px;
+		}
+	}
+
+	&.inline.delete-button {
+		padding: 8px 15px;
+		font-weight: normal;
+	}
+}
+
+.overflow.menu {
+	.items {
+		max-height: 300px;
+		overflow-y: auto;
+		.item {
+			position: relative;
+			cursor: pointer;
+			display: block;
+			border: none;
+			height: auto;
+			border-top: none;
+			line-height: 1em;
+			color: rgba(0,0,0,.8);
+			padding: .71428571em 1.14285714em !important;
+			font-size: 1rem;
+			text-transform: none;
+			font-weight: 400;
+			box-shadow: none;
+			-webkit-touch-callout: none;
+			&.active {
+				font-weight: 700;
+			}
+			&:hover {
+				background: rgba(0,0,0,.05);
+				color: rgba(0,0,0,.8);
+				z-index: 13;
+			}
+		}
+	}
+}
+
+.scrolling.menu {
+	.item.selected {
+		font-weight: 700 !important;
+	}
+}
+
+footer {
+	margin-top: @footer-margin+14px !important;
+	height: @footer-margin;
+	background-color: white;
+	border-top: 1px solid #d6d6d6;
+	clear: both;
+	width: 100%;
+	color: #888888;
+	.container {
+		padding-top: 10px;
+		.fa {
+			width: 16px;
+			text-align: center;
+			color: #428bca;
+		}
+		.links >* {
+			border-left: 1px solid #d6d6d6;
+			padding-left: 8px;
+			margin-left: 5px;
+			&:first-child {
+				border-left: none;
+			}
+		}
+	}
+
+	.ui.language .menu {
+		max-height: 500px;
+		overflow-y: auto;
+		margin-bottom: 7px;
+	}
+}
+
+.hide {
+	display: none;
+}
+.center {
+	text-align: center;
+}
+
+.no-padding-left {
+	padding-left: 0 !important;
+}
+
+.generate-img(16);
+.generate-img(@n, @i: 1) when (@i =< @n) {
+	.img-@{i} {
+		width: (2px * @i) !important;
+		height: (2px * @i) !important;
+	}
+	.generate-img(@n, (@i + 1));
+}
+
+// Accessibility
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+	.ui.container {
+		width: 95%;
+	}
+}
+
+/* Overrides some styles of the Highlight.js plugin */
+.hljs {
+	background: inherit !important;
+	padding: 0 !important;
+}
+
+// Reset CSS to prevent UI breaks
+.ui.dropdown .menu>.item>.image,
+.ui.dropdown .menu>.item>img,
+.ui.dropdown>.text>.image,
+.ui.dropdown>.text>img {
+	vertical-align: middle;
+	margin-top: 0;
+    margin-bottom: 0;
+}
+@media (max-width: 1020px) {
+	body {
+	  min-width: 320px !important;
+	  max-width: 100%;
+	}
+	
+	img, table, td, blockquote, code, pre, textarea, input, iframe, object, embed, video {
+		max-width: 100%;
+	}	
+	
+	.full.height,
+	.following.bar.light,
+	.ui.form .inline.field > .selection.dropdown,
+	.ui.form .inline.fields .field > .selection.dropdown,
+	.ui.form .inline.field > input, 
+	.ui.form .inline.field > select, 
+	.ui.form .inline.fields .field > input, 
+	.ui.form .inline.fields .field > select{
+		width: 100% !important;
+	}
+	
+	.ui.header .ui.right .ui.small.button,
+	.ui.header .ui.right .ui.labeled.button{
+		margin: 5px 2.5px;
+	}
+	
+	.ui.container,
+	.ui.container:not(.fluid)
+	{
+		width: 90% !important;
+		margin: auto 5% !important;
+		/*margin: 0 !important;*/
+	}
+	
+	.ui.grid.news{
+		max-width: 100% !important;
+	}
+	
+	footer{
+		width: 100%;
+		height: 75px;
+		bottom: 0;
+		position: relative;
+	}
+	
+	footer .ui.container{
+		height: 100%;
+	}
+	
+	footer .version{
+		display: none;
+	}
+	
+	footer .ui.left{
+		width: 70%;
+		word-wrap: break-word;
+	}
+	
+	.ui.language.bottom.floating.slide.up.dropdown.link.item{
+		right: 5%;
+		position: absolute;
+		bottom: 36.5%;
+	}
+	
+	.following.bar a.main-menu.item .menu-icon.octicon{
+		display: block;
+		font-size: medium;
+		text-indent: 0;
+		margin: 5px auto !important;
+	}
+	
+	.following.bar a.main-menu.item.active{
+		width: 50px;
+	}
+	
+	.following.bar a.main-menu.item{
+		text-indent: -9999px;
+		white-space: nowrap; 
+		overflow: hidden;
+		font-size: 0px;
+		width: 35px;
+	}
+	
+	.following.bar a.main-menu.item .menu-icon.octicon.octicon-git-pull-request{
+		padding-left: 5px;
+	}
+	
+	.ui.header{
+		text-align: center;
+	}
+	
+	.column .ui.header .ui.right{
+		padding-top: 5px;
+		width: 90%;
+		margin: 0 auto;
+		float: none;
+	}
+	
+	.ui.container .ui.header .ui.right .ui.small.button{
+		margin: 0;
+	}
+	
+	.ui.attached.header .right{
+		margin-top: 5px;
+		float: none;
+	}
+	
+	.ui.tabs.container .ui.tabular.menu .item{
+		text-indent: -9999px;
+		white-space: nowrap; 
+		overflow: hidden;
+		font-size: 0px;
+		width: 50px;
+	}
+	
+	.ui.tabular.menu .item i{
+		text-indent: 0;
+	}
+	
+	.ui.tabular.menu .item span{
+		text-indent: 0;
+		margin-left: 0 !important;
+		margin: auto;
+	}
+	
+	.ui.top.attached.header{
+		padding-left: 0 !important;
+	}
+	
+	.ui.form .inline.field > :first-child, 
+	.ui.form .inline.fields .field > :first-child{
+		text-align: left;
+	}
+	
+	.inline.field a[href^="/user/sign_up"]{
+		white-space: nowrap;
+	}
+	
+	.ui.form .field:last-child,
+	.ui.form .field:last-child .ui.button{
+		width: 100%;
+		margin: 3px auto;
+	}
+	.search-mobile {
+		display: none !important;
+	}
+	.nav-active {
+		box-shadow: 0px 0px 0px #4e57ef !important;
+		padding: 5px !important;
+		width: 40px !important;
+	}
+}
+.nav-bold {
+	font-weight: bold !important;
+	font-size: 13px;
+}
+.table-c, .td-c {
+	border: 1px solid #c3c3c3;
+   	border-collapse: collapse;
+}
+.td-c {
+	padding: 5px;
+  	text-align: left;
+  	font-weight: bold;
+}
+.center-c {
+	text-align: center;
+}
+
+.latest-version {
+	background: #128a0c;
+  	font-size: 10px;
+	color: #fff;
+	display: inline-block;
+	line-height: 1;
+	padding: .5833em .833em;
+	border-radius: .28571429rem;
+	margin-left: 10px;
+}
+.big-emoji {
+  	font-size: 40px;
+}
+.explore-username {
+	background-color: #ffdb99;
+	color: #5a5a5a;
+	display: inline-block;
+	padding-left: 6px;
+	padding-right: 6px;
+	border-radius: 2em;
+	font-size: 12px;
+}
+.side-footer {
+	font-size: 12px;
+	line-height: 22px;
+	color: #707070;
+	margin-top: 20px;
+}
+.side-footer-contents {
+	margin-right: 3px;
+	margin-left: 3px;
+}
+.five-zero-zero {
+	color: rgba(0, 0, 0, 0.5);
+	margin: 10px 0 10px;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.6em;
+}
+.home-main {
+  	margin-top: 6em;
+}
+.home-bg {
+  	background: url(https://cdn.jsdelivr.net/npm/gitote@1.0.1/img/pattern.svg),#2b3137;
+}
+.home-text {
+  	color: #fff !important;
+}
+.home-btn {
+	padding: 20px !important;
+	margin-top: 50px !important;
+	margin-left: 8px !important;
+	margin-right: 8px !important;
+}
+.notice {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.5;
+}

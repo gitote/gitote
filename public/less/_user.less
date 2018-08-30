@@ -1,0 +1,139 @@
+.user {
+	&:not(.icon) {
+		padding-top: 15px;
+		padding-bottom: @footer-margin * 2;
+	}
+
+	&.settings {
+		.list {
+			.item.ui.grid {
+				margin-top: 15px;
+			}
+		}
+		.email.list {
+			.item:not(:first-child) {
+				border-top: 1px solid #eaeaea;
+				height: 50px;
+				.button {
+					margin-top: -10px;
+				}
+			}
+			.item .ui.primary.label {
+				margin-top: -5px;
+			}
+		}
+		&.sshkeys,
+		&.applications {
+			.right.floated.button {
+		    padding-top: 1rem;
+		    padding-bottom: 1rem;
+			}
+		}
+		&.security {
+			.two-factor .toggle.button {
+				margin-top: -5px;
+			}
+		}
+		&.repositories .repos {
+			padding: 0;
+			.item {
+				padding: 15px;
+				height: 46px;
+				.button {
+					margin-top: -5px;
+				}
+			}
+		}
+		&.organizations .orgs {
+			&.non-empty {
+				padding: 0;
+			}
+			.item {
+				padding: 10px;
+				.button {
+					margin-top: 5px;
+					margin-right: 8px;
+				}
+			}
+		}
+	}
+
+	&.profile {
+		.ui.card {
+			border: 2px solid #551029 !important;
+    		box-shadow: 5px 6px 0px #551029 !important;
+			.header {
+				word-break: break-all;
+			}
+			.username {
+				background-color: #ffdb99;
+    			color: #330000;
+    			display: inline-block;
+    			margin-top: 5px;
+    			padding: 3px;
+    			padding-left: 8px;
+    			padding-right: 8px;
+			    border-radius: 2em;
+    			font-size: 11px;
+			}
+			.extra.content {
+				padding: 0;
+
+				ul {
+					margin: 0;
+					padding: 0;
+
+					li {
+						padding: 10px;
+						list-style: none;
+
+						&:not(:last-child) {
+							border-bottom: 1px solid #eaeaea;
+							font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    						font-weight: bold;
+						}
+
+						.octicon {
+							margin-left: 1px;
+							margin-right: 5px;
+						}
+
+						&.follow {
+							.ui.button {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.ui.repository.list {
+			margin-top: 25px;
+		}
+	}
+
+	&.followers {
+		.header.name {
+			font-size: 20px;
+			line-height: 24px;
+			vertical-align: middle;
+		}
+
+		.follow {
+			.ui.button {
+				padding: 8px 15px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1020px) {
+	.ui.eleven.wide.column{
+		width: 100% !important;
+	}
+	
+	.ui.container .ui.grid .ui.eleven.wide.column .text.right .ui.green.button{
+		width: 100%;
+	}
+}

@@ -1,0 +1,29 @@
+<div class="home-bg">
+	{{template "base/head" .}}
+	<div class="home home-main">
+		<div class="ui stackable middle very relaxed page grid">
+			<div class="sixteen wide center aligned centered column">
+				<div class="logo">
+					<img height="80px" src="https://cdn.jsdelivr.net/npm/gitote@1.0.1/logo.png" />
+				</div>
+				<div class="hero">
+					<h1 class="ui icon header title home-text">
+						Gitote
+					</h1>
+					<h2 class="home-text">{{.i18n.Tr "app_desc"}}</h2>
+					<a href="/user/login">
+						<button class="ui green button home-btn">
+							🔑 Sign in
+						</button>
+					</a>
+					<a href="/user/sign_up">
+						<button class="ui blue button home-btn">
+							➕ Create Account
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{template "base/footer" .}}
+</div>

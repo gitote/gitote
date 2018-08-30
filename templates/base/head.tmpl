@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head data-suburl="{{AppSubURL}}">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	{{if not .PageIsAdmin}}
+		<meta name="author" content="{{if .Repository}}{{.Owner.Name}}{{else}}Gitote{{end}}" />
+		<meta name="description" content="{{if .Repository}}{{.Repository.Name}}{{if .Repository.Description}} - {{.Repository.Description}}{{end}}{{else}}Software version control made simple{{end}}" />
+		<meta name="keywords" content="go, git, self-hosted, gitote">
+	{{end}}
+	<meta name="referrer" content="no-referrer" />
+	<meta name="_csrf" content="{{.CSRFToken}}" />
+	<meta name="_suburl" content="{{AppSubURL}}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<!-- Open Graph Tags -->
+	{{if .PageIsAdmin}}
+	{{else if .PageIsUserProfile}}
+		<meta property="og:url" content="{{.Owner.HTMLURL}}" />
+		<meta property="og:type" content="profile" />
+		<meta property="og:title" content="{{.Owner.Name}}{{if .Owner.FullName}} ({{.Owner.FullName}}){{end}}">
+		<meta property="og:description" content="{{.Owner.Name}} has {{.Owner.NumFollowers}} followers and is following {{.Owner.NumFollowing}} people.">
+		<meta property="og:image" content="{{.Owner.AvatarLink}}" />
+	{{else if .Repository}}
+		<meta property="og:url" content="{{.Repository.HTMLURL}}" />
+		<meta property="og:type" content="object" />
+		<meta property="og:title" content="{{.Repository.FullName}}">
+		<meta property="og:description" content="{{.Repository.Description}}">
+		<meta property="og:image" content="{{.Repository.Owner.AvatarLink}}" />
+	{{else}}
+		<meta property="og:url" content="{{AppURL}}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="{{AppName}}">
+		<meta property="og:description" content="Software version control made simple">
+		<meta property="og:image" content="{{AppURL}}img/gitote.png" />
+		<meta property="og:site_name" content="Gitote">
+	{{end}}
+
+	<link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/gitote@1.0.1/logo.png" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.AreYouSure/1.9.0/jquery.are-you-sure.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitote@1.0.2/plugins/octicons/octicons.min.css">
+
+	{{if .IsIPythonNotebook}}
+		<script src="https://cdn.jsdelivr.net/npm/notebookjs@0.3.0/notebook.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+	{{end}}
+
+	{{if .RequireSimpleMDE}}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.10.1/simplemde.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.10.1/simplemde.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/addon/mode/loadmode.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/meta.js"></script>
+		<script>
+			CodeMirror.modeURL =  "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/%N/%N.js";
+		</script>
+	{{end}}
+
+	<link rel="stylesheet" href="/css/bundle.css?v={{MD5 AppVer}}">
+	<link rel="stylesheet" href="{{AppSubURL}}/css/gitote.css?v={{MD5 AppVer}}">
+	<noscript>
+		<style>
+			.dropdown:hover > .menu { display: block; }
+			.ui.secondary.menu .dropdown.item > .menu { margin-top: 0; }
+		 </style>
+	</noscript>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+	<script src="{{AppSubURL}}/js/gitote.js?v={{MD5 AppVer}}"></script>
+
+	<title>{{if .Title}}{{.Title}} - {{end}}{{AppName}}</title>
+
+	<meta name="theme-color" content="{{ThemeColorMetaTag}}">
+
+	{{template "inject/head" .}}
+</head>
+<body>
+	<div class="full height">
+		<noscript>This website works better with JavaScript</noscript>
+
+		{{if not .PageIsInstall}}
+			<div class="following bar light">
+				<div class="ui container">
+					<div class="ui grid">
+						<div class="column">
+							<div class="ui top secondary menu">
+								<a class="item brand" href="{{AppSubURL}}/">
+									<img class="ui mini image" src="https://cdn.jsdelivr.net/npm/gitote@1.0.1/logo.png">
+								</a>
+
+								{{if .IsLogged}}
+									<a class="nav-bold main-menu item{{if .PageIsDashboard}} nav-active{{end}}" href="{{AppSubURL}}/"><i class="menu-icon octicon">🏠</i>{{.i18n.Tr "dashboard"}}</a>
+									<a class="nav-bold main-menu item{{if .PageIsIssues}} nav-active{{end}}" href="{{AppSubURL}}/issues"><i class="menu-icon octicon">📑</i>{{.i18n.Tr "issues"}}</a>
+									<a class="nav-bold main-menu item{{if .PageIsPulls}} nav-active{{end}}" href="{{AppSubURL}}/pulls"><i class="menu-icon octicon">🚧</i>{{.i18n.Tr "pull_requests"}}</a>
+								{{else}}
+									<a class="nav-bold main-menu item{{if .PageIsHome}} nav-active{{end}}" href="{{AppSubURL}}/"><i class="menu-icon octicon">🏠</i>{{.i18n.Tr "home"}}</a>
+								{{end}}
+
+								<a class="nav-bold main-menu item{{if .PageIsExplore}} nav-active{{end}}" href="{{AppSubURL}}/explore/repos"><i class="menu-icon octicon">🌐</i>{{.i18n.Tr "explore"}}</a>
+
+								<form class="search-mobile item" action="{{AppSubURL}}/explore/repos" method="get">
+									<div class="ui icon input">
+										<input class="searchbox" type="text" name="q" placeholder="{{.i18n.Tr "explore.search"}}..." autocomplete="off" required>
+										<i class="search icon"></i>
+									</div>
+								</form>
+
+								{{if .IsLogged}}
+									<div class="right menu">
+										<div class="ui dropdown head link jump item poping up head-link" data-content="{{.i18n.Tr "create_new"}}" data-variation="tiny inverted">
+											<span class="text">
+												<i class="menu-icon octicon">➕</i> <i class="octicon octicon-triangle-down"></i>
+											</span>
+											<div class="menu">
+												<a class="item" href="{{AppSubURL}}/repo/create">
+													<i class="menu-icon octicon">📂</i>{{.i18n.Tr "new_repo"}}
+												</a>
+												<a class="item" href="{{AppSubURL}}/repo/migrate">
+													<i class="menu-icon octicon">🎯</i>{{.i18n.Tr "new_migrate"}}
+												</a>
+												{{if .LoggedUser.CanCreateOrganization}}
+												<a class="item" href="{{AppSubURL}}/org/create">
+													<i class="menu-icon octicon">🏢</i>{{.i18n.Tr "new_org"}}
+												</a>
+												{{end}}
+											</div>
+										</div>
+
+										<div class="ui dropdown head link jump item poping up head-link" tabindex="-1" data-content="{{.i18n.Tr "user_profile_and_more"}}" data-variation="tiny inverted">
+											<span class="text avatar">
+												<img class="ui small rounded image" src="{{.LoggedUser.RelAvatarLink}}">
+												<span class="sr-only">{{.i18n.Tr "user_profile_and_more"}}</span>
+												<i class="octicon octicon-triangle-down" tabindex="-1"></i>
+											</span>
+											<div class="menu" tabindex="-1">
+												<div class="ui header">
+													{{.i18n.Tr "signed_in_as"}} <strong>{{.LoggedUser.Name}}</strong>
+												</div>
+
+												<div class="divider"></div>
+												<a class="item" href="{{AppSubURL}}/{{.LoggedUser.Name}}">
+													<i class="menu-icon octicon">👦</i>{{.i18n.Tr "your_profile"}}
+												</a>
+												<a class="item" href="{{AppSubURL}}/{{.LoggedUser.Name}}?tab=activity">
+													<i class="menu-icon octicon">💪</i>{{.i18n.Tr "activities"}}
+												</a>
+												<a class="{{if .PageIsUserSettings}}active{{end}} item" href="{{AppSubURL}}/user/settings">
+													<i class="menu-icon octicon">🛠️</i>{{.i18n.Tr "your_settings"}}
+												</a>
+												{{if .IsAdmin}}
+													<div class="divider"></div>
+
+													<a class="{{if .PageIsAdmin}}active{{end}} item" href="{{AppSubURL}}/admin">
+														<i class="menu-icon octicon">📈</i>{{.i18n.Tr "admin_panel"}}
+													</a>
+												{{end}}
+
+												<div class="divider"></div>
+												<a class="item" href="{{AppSubURL}}/help">
+													<i class="menu-icon octicon">🙋</i>{{.i18n.Tr "help"}}
+												</a>
+												<a class="item" href="{{AppSubURL}}/user/logout">
+													<i class="menu-icon octicon">👋</i>{{.i18n.Tr "sign_out"}}
+												</a>
+											</div>
+										</div>
+									</div>
+
+								{{else}}
+
+									<div class="right menu">
+										{{if .ShowRegistrationButton}}
+											<a class="nav-bold main-menu item{{if .PageIsSignUp}} active{{end}}" href="{{AppSubURL}}/user/sign_up">
+												<i class="menu-icon octicon">➕ </i> {{.i18n.Tr "register"}}
+											</a>
+										{{end}}
+										<a class="nav-bold main-menu item{{if .PageIsSignIn}} active{{end}}" href="{{AppSubURL}}/user/login?redirect_to={{.Link}}">
+											<i class="menu-icon octicon octicon">🔑</i> {{.i18n.Tr "sign_in"}}
+										</a>
+									</div>
+
+								{{end}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{end}}
+{{/*
+	</div>
+</body>
+</html>
+*/}}

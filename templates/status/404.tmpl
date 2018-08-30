@@ -1,0 +1,11 @@
+{{template "base/head" .}}
+<div class="ui container center">
+	<p style="margin-top:100px;margin-bottom:50px"><img height="200px" src="https://cdn.jsdelivr.net/npm/gitote@1.0.1/img/404.png" alt="404"/></p>
+	<form class="ui form" action="{{AppSubURL}}/explore/repos" method="get">
+		<div class="ui fluid action input">
+			<input type="text" name="q" placeholder="{{.i18n.Tr "explore.search"}}..." required autofocus>
+			<button class="ui blue button">{{.i18n.Tr "explore.search"}}</button>
+		</div>
+	</form>
+</div>
+{{template "base/footer" .}}

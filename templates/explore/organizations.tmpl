@@ -1,0 +1,41 @@
+{{template "base/head" .}}
+<div class="explore users">
+	<div class="ui container">
+		<div class="ui grid">
+			{{template "explore/navbar" .}}
+			<div class="twelve wide column content">
+				{{template "explore/search" .}}
+
+				<div class="ui user list">
+					{{range .Users}}
+						<div class="item">
+						  <img class="ui avatar image" src="{{.RelAvatarLink}}">
+						  <div class="content">
+								{{if .FullName}}
+						  		<span class="header"><a href="{{.HomeLink}}">{{.FullName}}</a> {{.Name}}</span>
+								{{else}}
+									<span class="header"><a href="{{.HomeLink}}">{{.Name}}</a></span>
+								{{end}}
+						    <div class="description">
+									{{if .Location}}
+										<i class="menu-icon octicon">📍</i> {{.Location}}
+									{{end}}
+									{{if and .Website}}
+										{{if .Location}}
+											<span style="margin-left:10px"><i class="menu-icon octicon">🔗</i> <a href="{{.Website}}" rel="nofollow">{{.Website}}</a></span>
+										{{else}}
+											<i class="menu-icon octicon">🔗</i> <a href="{{.Website}}" rel="nofollow">{{.Website}}</a>
+										{{end}}
+									{{end}}
+						    </div>
+						  </div>
+						</div>
+					{{end}}
+				</div>
+
+				{{template "explore/page" .}}
+			</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}
