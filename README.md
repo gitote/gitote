@@ -49,7 +49,7 @@ We expect contributors to abide by our underlying [code of conduct](docs/CONDUCT
 
 ### Where to contribute
 
-When in doubt, ask a [core team member](#core-team)! You can mention us in any issues . Any issue with ~7579403 tag is typically a good place to start.
+When in doubt, ask a [core team member](#core-team)! You can mention us in any issues . Any issue with `Good first Issue` tag is typically a good place to start.
 
 **Refactoring** code, e.g. improving the code without modifying the behavior is an area that can probably be done based on intuition and may not require much communication to be merged.
 
